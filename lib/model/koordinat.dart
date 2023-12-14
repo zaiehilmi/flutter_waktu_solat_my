@@ -3,7 +3,7 @@ class Koordinat {
   double longitud;
 
   Koordinat(
-     this.latitud,
-     this.longitud,
+    this.latitud,
+    this.longitud,
   );
 }
