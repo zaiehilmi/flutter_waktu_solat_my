@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:waktu_solat_malaysia/model/tempoh_jadual.dart';
@@ -10,11 +9,7 @@ import 'package:waktu_solat_malaysia/model/zon_waktu_solat.dart';
 const _eSolatEndpoint =
     'https://www.e-solat.gov.my/index.php?r=esolatApi/takwimsolat&';
 
-String _urlPath(String path) {
-  if (kDebugMode) print('laluan URL: $_eSolatEndpoint$path');
-
-  return '$_eSolatEndpoint$path';
-}
+String _urlPath(String path) => '$_eSolatEndpoint$path';
 
 /// untuk mendapatkan waktu solat
 ///
@@ -66,7 +61,6 @@ Future<List<WaktuSolat>?> _ambilSenaraiWaktuSolat(
       response = await http.get(url);
     }
     final json = await jsonDecode(response.body);
-    if (kDebugMode) print(json);
 
     for (var items in json["prayerTime"]) {
       var temp = WaktuSolat.fromJson(items);
