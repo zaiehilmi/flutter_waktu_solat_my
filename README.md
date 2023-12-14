@@ -1,6 +1,6 @@
 Ini ialah pakej Dart untuk mendapatkan waktu solat di Malaysia berdasarkan jadual daripada JAKIM.
 
-## Ciri-ciri
+## Ciri-ciri 🤔
 
 Pakej ini membolehkan anda:
 
@@ -8,7 +8,7 @@ Pakej ini membolehkan anda:
 - Mendapatkan waktu solat hari ini berdasarkan zon waktu solat yang ditetapkan.
 - Menentukan zon waktu solat berdasarkan koordinat yang diberi
 
-## Memulakan
+## Memulakan 😎
 
 Sebelum memulakan penggunaan pakej ini, pastikan anda memenuhi prasyarat berikut:
 
@@ -22,7 +22,7 @@ Sebelum memulakan penggunaan pakej ini, pastikan anda memenuhi prasyarat berikut
     flutter pub get
     ```
 
-## Penggunaan
+## Penggunaan 🫵
 
 ### 1. Menentukan Zon Waktu Solat
 
@@ -88,7 +88,7 @@ final ws = await dapatkanJadualWaktuSolat(
 ));
 ```
 
-## Senarai kelas, enum dan ciri-cirinya
+## Senarai kelas, enum dan ciri-cirinya 👀
 
 ### `enum ZonWaktuSolat`
 senarai penuh berserta nama kawasan kod zon tersebut boleh didapati di laman [E-Solat oleh JAKIM](https://www.e-solat.gov.my/)
