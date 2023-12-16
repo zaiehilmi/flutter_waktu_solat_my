@@ -1,4 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:waktu_solat_malaysia/waktu_solat_malaysia.dart';
 
 void main() {
@@ -24,5 +24,13 @@ void main() {
       ), // dapatkan tarikh esok
     );
     expect(2, ws?.length);
+  });
+
+  test('tentukan zon', () {
+    Koordinat koordinatSemasa =
+        Koordinat(3.1390, 101.6869); // Koordinat Kuala Lumpur
+    ZonWaktuSolat? zon =
+        tentukanZon(koordinatSemasa, namaBandar: 'Kuala Lumpur');
+    print('Zon waktu solat: $zon');
   });
 }

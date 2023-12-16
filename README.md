@@ -56,17 +56,17 @@ terdapat 5 tempoh yang boleh didapati melalui TempohJadual:
 import 'package:waktu_solat_malaysia/waktu_solat_malaysia.dart';
 
 void main() async {
-  List<WaktuSolat>? senaraiWaktuSolat = await waktuSolatBertempoh(
-      ZonWaktuSolat.WLY01,
-      tempohJadual: TempohJadual.minggu
-  );
+   List<WaktuSolat>? senaraiWaktuSolat = await dapatkanJadualWaktuSolat(
+           ZonWaktuSolat.WLY01,
+           tempohJadual: TempohJadual.minggu
+   );
 
   if (senaraiWaktuSolat != null) {
-    for (var waktuSolat in senaraiWaktuSolat) {
-      print('Hari ${waktuSolat.hari}: waktu ${waktuSolat.subuh}');
-    }
+     for (var waktuSolat in senaraiWaktuSolat) {
+        print('Hari ${waktuSolat.hari}: subuh ${waktuSolat.subuh}');
+     }
   } else {
-    print('Gagal mendapatkan senarai waktu solat.');
+     print('Gagal mendapatkan senarai waktu solat.');
   }
 }
 ```
@@ -74,6 +74,8 @@ void main() async {
 #### Cara 2: `TempohJadual` menggunakan _durasi_
 
 ```dart
+import 'package:waktu_solat_malaysia/waktu_solat_malaysia.dart';
+
 
 final harini = DateTime.now();
 

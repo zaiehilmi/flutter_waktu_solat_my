@@ -24,31 +24,17 @@ Future<List<WaktuSolat>?> dapatkanJadualWaktuSolat(
   DateTime? mula,
   DateTime? tamat,
 }) async {
-  return _ambilSenaraiWaktuSolat(
-    zonWaktuSolat,
-    tempohJadual: tempohJadual,
-    tarikhMula: mula,
-    tarikhTamat: tamat,
-  );
-}
-
-Future<List<WaktuSolat>?> _ambilSenaraiWaktuSolat(
-  ZonWaktuSolat zonWaktuSolat, {
-  TempohJadual tempohJadual = TempohJadual.harini,
-  DateTime? tarikhMula,
-  DateTime? tarikhTamat,
-}) async {
+  final DateFormat dateFormat = DateFormat('yyyy-MM-dd');
   List<WaktuSolat>? senaraiWaktuSolat = [];
   late final http.Response response;
-  final DateFormat dateFormat = DateFormat('yyyy-MM-dd');
 
   final Uri url = Uri.parse(
       _urlPath('&zone=${zonWaktuSolat.name}&period=${tempohJadual.nama}'));
 
   try {
     if (tempohJadual == TempohJadual.durasi) {
-      final formatTarikhMula = dateFormat.format(tarikhMula!);
-      final formatTarikhTamat = dateFormat.format(tarikhTamat!);
+      final formatTarikhMula = dateFormat.format(mula!);
+      final formatTarikhTamat = dateFormat.format(tamat!);
 
       response = await http.post(
         url,
@@ -69,8 +55,8 @@ Future<List<WaktuSolat>?> _ambilSenaraiWaktuSolat(
 
     return senaraiWaktuSolat;
   } catch (e) {
-    if (tarikhMula == null) throw ('Ralat: tiada nilai pada "tarikhMula"');
-    if (tarikhTamat == null) throw ('Ralat: tiada nilai pada "tarikhTamat"');
+    if (mula == null) throw ('Ralat: tiada nilai pada "tarikhMula"');
+    if (tamat == null) throw ('Ralat: tiada nilai pada "tarikhTamat"');
     if (response.statusCode != 200) {
       throw ('Ralat menghubungi pelayan. Huraian: $e');
     } else {
