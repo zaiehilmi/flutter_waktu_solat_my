@@ -3,7 +3,11 @@ import 'package:waktu_solat_malaysia/util/format_masa.dart';
 class WaktuSolat {
   /// dalam bahasa inggeris. Contohnya "Tuesday".
   String? hari;
+
+  /// tarikh dalam kalendar hijrah. contoh output: "1445-06-03"
   String? hijrah;
+
+  /// tarikh dalam kalendar masihi. contoh output: "16-Dec-2023"
   String? masihi;
 
   /// 10 minit sebelum waktu subuh. format asal waktu solat ialah dalam bentuk

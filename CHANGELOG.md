@@ -6,3 +6,6 @@
 
 * kemaskini untuk pub score
 * betulkan method tentukanZon() selepas membuang kebergantungan terhadap pakej Flutter
+
+## 1.0.2
+* menambah `example/`
