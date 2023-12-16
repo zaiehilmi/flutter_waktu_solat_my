@@ -15,7 +15,7 @@ Sebelum memulakan penggunaan pakej ini, pastikan anda memenuhi prasyarat berikut
 1. Tambahkan pakej ini ke dalam fail pubspec.yaml anda:
     ```yaml
     dependencies:
-        waktu_solat_malaysia: ^1.0.0
+        waktu_solat_malaysia: ^1.0.1
     ```
 2. Kemudian, jalankan perintah:
     ```terminal
@@ -61,13 +61,13 @@ void main() async {
            tempohJadual: TempohJadual.minggu
    );
 
-  if (senaraiWaktuSolat != null) {
-     for (var waktuSolat in senaraiWaktuSolat) {
-        print('Hari ${waktuSolat.hari}: subuh ${waktuSolat.subuh}');
-     }
-  } else {
-     print('Gagal mendapatkan senarai waktu solat.');
-  }
+   if (senaraiWaktuSolat != null) {
+      for (var waktuSolat in senaraiWaktuSolat) {
+         print('Hari ${waktuSolat.hari}: subuh ${waktuSolat.subuh}');
+      }
+   } else {
+      print('Gagal mendapatkan senarai waktu solat.');
+   }
 }
 ```
 
