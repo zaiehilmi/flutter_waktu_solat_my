@@ -9,3 +9,7 @@
 
 ## 1.0.2
 * menambah `example/`
+
+## 1.0.3
+* menambah mesej ralat melibatkan tarikh yang mempunyai tahun berbeza (telah diterangkan di dalam `README`)
+* menambah _method_ toString() ke dalam WaktuSolat.

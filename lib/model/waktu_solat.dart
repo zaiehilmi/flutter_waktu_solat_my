@@ -72,4 +72,17 @@ class WaktuSolat {
       isyak: isyak,
     );
   }
+
+  @override
+  String toString() => '''
+Waktu solat $hari ($masihi/$hijrah)
+  
+Imsak   : $imsak
+Subuh   : $subuh
+Syuruk  : $syuruk
+Zohor   : $zohor
+Asar    : $asar
+Maghrib : $maghrib
+Isyak   : $isyak
+''';
 }

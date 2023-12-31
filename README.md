@@ -15,7 +15,7 @@ Sebelum memulakan penggunaan pakej ini, pastikan anda memenuhi prasyarat berikut
 1. Tambahkan pakej ini ke dalam fail pubspec.yaml anda:
     ```yaml
     dependencies:
-        waktu_solat_malaysia: ^1.0.2
+        waktu_solat_malaysia: ^1.0.3
     ```
 2. Kemudian, jalankan perintah:
     ```terminal
@@ -89,6 +89,14 @@ final ws = await dapatkanJadualWaktuSolat(
       harini.day + 1 // tarikh esok
 ));
 ```
+
+> ## Perhatian! 🐥
+> Pelayan tidak dapat memberikan respon jika tarikh yang diberi melibatkan perbezaan tahun.  
+> 
+> Sebagai contoh, jika tarikh _request_ ialah **31 Disember 2023** dan anda menggunakan `TempohJadual.minggu`, 
+> 7 hari berikutnya merupakan tahun berbeza maka pelayan akan memberikan ralat `Ralat pada pelayan: Maaf, tidak dapat memberikan jadual waktu solat jika tahun berbeza`.  
+> 
+> Hal ini terpakai juga untuk `TempohJadual.durasi` jika tarikh diberikan ialah berbeza tahunnya.
 
 ## Senarai kelas, enum dan ciri-cirinya 👀
 

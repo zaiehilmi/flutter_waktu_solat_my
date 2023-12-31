@@ -6,6 +6,7 @@ import 'package:waktu_solat_malaysia/model/tempoh_jadual.dart';
 import 'package:waktu_solat_malaysia/model/waktu_solat.dart';
 import 'package:waktu_solat_malaysia/model/zon_waktu_solat.dart';
 
+// sumber: https://github.com/acfatah/jakim-esolat-api?tab=readme-ov-file
 const _eSolatEndpoint =
     'https://www.e-solat.gov.my/index.php?r=esolatApi/takwimsolat&';
 
@@ -26,7 +27,7 @@ Future<List<WaktuSolat>?> dapatkanJadualWaktuSolat(
 }) async {
   final DateFormat dateFormat = DateFormat('yyyy-MM-dd');
   List<WaktuSolat>? senaraiWaktuSolat = [];
-  late final http.Response response;
+  late http.Response? response;
 
   final Uri url = Uri.parse(
       _urlPath('&zone=${zonWaktuSolat.name}&period=${tempohJadual.nama}'));
@@ -46,6 +47,7 @@ Future<List<WaktuSolat>?> dapatkanJadualWaktuSolat(
     } else {
       response = await http.get(url);
     }
+
     final json = await jsonDecode(response.body);
 
     for (var items in json["prayerTime"]) {
@@ -55,10 +57,33 @@ Future<List<WaktuSolat>?> dapatkanJadualWaktuSolat(
 
     return senaraiWaktuSolat;
   } catch (e) {
-    if (mula == null) throw ('Ralat: tiada nilai pada "tarikhMula"');
-    if (tamat == null) throw ('Ralat: tiada nilai pada "tarikhTamat"');
-    if (response.statusCode != 200) {
-      throw ('Ralat menghubungi pelayan. Huraian: $e');
+    _senaraiRalat(mula, tamat, response, e, tempohJadual);
+  }
+  return null;
+}
+
+void _senaraiRalat(DateTime? mula, DateTime? tamat, http.Response? response,
+    Object e, TempohJadual tempohJadual) {
+  if (response?.statusCode != 200) {
+    if (mula?.year != tamat?.year) {
+      throw ('Ralat pada pelayan: Maaf, tidak dapat memberikan jadual waktu solat jika tahun berbeza');
+    }
+    if (tempohJadual == TempohJadual.minggu) {
+      final harini = DateTime.now();
+      final tujuhHariSelepasHarini = harini.add(Duration(days: 7));
+
+      if (harini.year != tujuhHariSelepasHarini.year) {
+        throw ('Ralat pada pelayan: Maaf, tidak dapat memberikan jadual waktu solat jika tahun berbeza');
+      }
+    }
+
+    throw ('Ralat menghubungi pelayan. Huraian: $e');
+  } else {
+    if (mula == null) {
+      throw ('Ralat: tiada nilai pada "tarikhMula"');
+    }
+    if (tamat == null) {
+      throw ('Ralat: tiada nilai pada "tarikhTamat"');
     } else {
       throw ('Ralat: $e');
     }
