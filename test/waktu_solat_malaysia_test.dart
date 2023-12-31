@@ -56,7 +56,7 @@ void main() {
     final ws = await dapatkanJadualWaktuSolat(
       ZonWaktuSolat.WLY01,
       tempohJadual: TempohJadual.durasi,
-      mula: harini,
+      mula: null,
       tamat: harini,
     );
     expect(1, ws?.length);

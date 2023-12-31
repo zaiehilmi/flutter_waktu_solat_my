@@ -56,19 +56,10 @@ Future<List<WaktuSolat>?> dapatkanJadualWaktuSolat(
     }
 
     return senaraiWaktuSolat;
-  } catch (e) {
-    _senaraiRalat(mula, tamat, response, e, tempohJadual);
-  }
-  return null;
-}
-
-void _senaraiRalat(DateTime? mula, DateTime? tamat, http.Response? response,
-    Object e, TempohJadual tempohJadual) {
-  if (response?.statusCode != 200) {
+  } on FormatException {
     if (mula?.year != tamat?.year) {
       throw ('Ralat pada pelayan: Maaf, tidak dapat memberikan jadual waktu solat jika tahun berbeza');
-    }
-    if (tempohJadual == TempohJadual.minggu) {
+    } else if (tempohJadual == TempohJadual.minggu) {
       final harini = DateTime.now();
       final tujuhHariSelepasHarini = harini.add(Duration(days: 7));
 
@@ -76,16 +67,24 @@ void _senaraiRalat(DateTime? mula, DateTime? tamat, http.Response? response,
         throw ('Ralat pada pelayan: Maaf, tidak dapat memberikan jadual waktu solat jika tahun berbeza');
       }
     }
-
-    throw ('Ralat menghubungi pelayan. Huraian: $e');
-  } else {
-    if (mula == null) {
-      throw ('Ralat: tiada nilai pada "tarikhMula"');
+  } catch (e) {
+    // tak berikan nilai pada param tarikhMula atau tarikhTamat jika gunakan TempohJadual.durasi
+    if (tempohJadual == TempohJadual.durasi) {
+      if (mula == null && tamat == null) {
+        throw ('Ralat: tiada nilai pada "tarikhMula" & "tarikhTamat"');
+      } else if (mula == null) {
+        throw ('Ralat: tiada nilai pada "tarikhMula"');
+      } else if (tamat == null) {
+        throw ('Ralat: tiada nilai pada "tarikhTamat"');
+      } else {
+        throw ('Ralat: $e');
+      }
     }
-    if (tamat == null) {
-      throw ('Ralat: tiada nilai pada "tarikhTamat"');
+    if (response?.statusCode != 200) {
+      throw ('Ralat menghubungi pelayan. Huraian: $e');
     } else {
       throw ('Ralat: $e');
     }
   }
+  return null;
 }
