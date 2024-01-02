@@ -35,7 +35,7 @@ void main() {
       tempohJadual: TempohJadual.tahun,
     );
     print(ws?[0].toString());
-    expect(365, ws?.length);
+    expect(366, ws?.length);
   });
 
   test('jadual waktu solat berdurasi', () async {
@@ -47,7 +47,7 @@ void main() {
       mula: harini,
       tamat: harini.add(Duration(days: 1)), // dapatkan tarikh esok
     );
-    expect(4, ws?.length);
+    expect(2, ws?.length);
   });
 
   test('jadual waktu solat berdurasi tetapi hanya harini', () async {
@@ -56,7 +56,7 @@ void main() {
     final ws = await dapatkanJadualWaktuSolat(
       ZonWaktuSolat.WLY01,
       tempohJadual: TempohJadual.durasi,
-      mula: null,
+      mula: harini,
       tamat: harini,
     );
     expect(1, ws?.length);
@@ -68,5 +68,22 @@ void main() {
     ZonWaktuSolat? zon =
         tentukanZon(koordinatSemasa, namaBandar: 'Kuala Lumpur');
     print('Zon waktu solat: $zon');
+  });
+
+  test('dari kod sampel README', () async {
+    List<WaktuSolat>? senaraiWaktuSolat = await dapatkanJadualWaktuSolat(
+        ZonWaktuSolat.WLY01,
+        tempohJadual: TempohJadual.minggu);
+
+    if (senaraiWaktuSolat != null) {
+      for (var waktuSolat in senaraiWaktuSolat) {
+        print('Hari ${waktuSolat.hari}: imsak ${waktuSolat.imsak}');
+        print('Hari ${waktuSolat.hari}: subuh ${waktuSolat.subuh}');
+        print('Hari ${waktuSolat.hari}: syuruk ${waktuSolat.syuruk}');
+        break;
+      }
+    } else {
+      print('Gagal mendapatkan senarai waktu solat.');
+    }
   });
 }
