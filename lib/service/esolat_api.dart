@@ -16,7 +16,7 @@ String _urlPath(String path) => '$_eSolatEndpoint$path';
 ///
 /// memerlukan [zonWaktuSolat] dan boleh dipilih melalui enum [ZonWaktuSolat] atau melalui
 /// method __tentukanZon()__.
-/// Untuk [tempohJadual], secara lalai akan menggunakan menunjukkan waktu solat hari ini namun boleh memilih juga
+/// Untuk [tempohJadual], secara lalai akan menggunakan waktu solat hari ini namun boleh memilih juga
 /// untuk tempoh waktu lain yang terdapat di enum [TempohJadual].
 /// Untuk [TempohJadual.durasi], pastikan disertakan juga dengan [mula] dan [tamat] dalam jenis [DateTime]
 Future<List<WaktuSolat>?> dapatkanJadualWaktuSolat(
