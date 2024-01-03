@@ -1,8 +1,8 @@
 import 'dart:math' show cos, sqrt, asin;
 
+import '../constant/zon_waktu_solat.dart';
 import '../model/koordinat.dart';
 import '../model/koordinat_zon_waktu_solat.dart';
-import '../model/zon_waktu_solat.dart';
 
 ZonWaktuSolat cariZonTerdekat(Koordinat koordinatSemasa) {
   double minDistance = double.infinity;

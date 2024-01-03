@@ -57,7 +57,7 @@ void main() {
       ZonWaktuSolat.WLY01,
       tempohJadual: TempohJadual.durasi,
       mula: harini,
-      tamat: harini,
+      tamat: null,
     );
     expect(1, ws?.length);
   });
@@ -65,8 +65,7 @@ void main() {
   test('tentukan zon', () {
     Koordinat koordinatSemasa =
         Koordinat(3.1390, 101.6869); // Koordinat Kuala Lumpur
-    ZonWaktuSolat? zon =
-        tentukanZon(koordinatSemasa, namaBandar: 'Kuala Lumpur');
+    ZonWaktuSolat? zon = tentukanZon(koordinatSemasa, namaBandar: 'kuantan');
     print('Zon waktu solat: $zon');
   });
 

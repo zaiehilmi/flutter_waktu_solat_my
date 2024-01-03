@@ -16,3 +16,6 @@
 
 ## 1.0.4
 * pembetulan pepijat
+
+## 1.0.5
+* pembetulan berkaitan penentuan zon jika memberikan nama bandar selain dari 6 bandar tersebut akan memberikan nilai `null`

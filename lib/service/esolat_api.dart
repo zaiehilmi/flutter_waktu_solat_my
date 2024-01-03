@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import 'package:waktu_solat_malaysia/model/tempoh_jadual.dart';
+import 'package:waktu_solat_malaysia/constant/tempoh_jadual.dart';
+import 'package:waktu_solat_malaysia/constant/zon_waktu_solat.dart';
 import 'package:waktu_solat_malaysia/model/waktu_solat.dart';
-import 'package:waktu_solat_malaysia/model/zon_waktu_solat.dart';
 
 // sumber: https://github.com/acfatah/jakim-esolat-api?tab=readme-ov-file
 const _eSolatEndpoint =

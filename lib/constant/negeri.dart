@@ -1,0 +1,16 @@
+enum Negeri {
+  Johor,
+  Kedah,
+  Kelantan,
+  Melaka,
+  NegeriSembilan,
+  Pahang,
+  Perlis,
+  Penang,
+  Perak,
+  Sabah,
+  Selangor,
+  Sarawak,
+  Terengganu,
+  Wilayah,
+}

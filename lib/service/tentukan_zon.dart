@@ -1,4 +1,4 @@
-import 'package:waktu_solat_malaysia/model/index.dart';
+import 'package:waktu_solat_malaysia/waktu_solat_malaysia.dart';
 
 import '../util/cari_zon_terdekat.dart';
 
@@ -24,6 +24,5 @@ ZonWaktuSolat? tentukanZon(
       'Melaka' => ZonWaktuSolat.MLK01,
       'Perlis' => ZonWaktuSolat.PLS01,
       'Pulau Pinang' => ZonWaktuSolat.PNG01,
-      String() => null,
-      null => cariZonTerdekat(koordinatSemasa),
+      String() || null => cariZonTerdekat(koordinatSemasa),
     };
