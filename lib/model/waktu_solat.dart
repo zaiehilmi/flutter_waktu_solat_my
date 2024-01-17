@@ -1,4 +1,5 @@
 import 'package:waktu_solat_malaysia/util/format_masa.dart';
+import 'package:waktu_solat_malaysia/util/masa_ke_datetime.dart';
 
 class WaktuSolat {
   /// dalam bahasa inggeris. Contohnya "Tuesday".
@@ -51,16 +52,16 @@ class WaktuSolat {
     final hijrah = data['hijri'] as String;
     final masihi = data['date'] as String;
 
-    final imsak = formatMasa(data['imsak']);
-    final subuh = formatMasa(data['fajr']);
-    final syuruk = formatMasa(data['syuruk']);
-    final zohor = formatMasa(data['dhuhr']);
-    final asar = formatMasa(data['asr']);
-    final maghrib = formatMasa(data['maghrib']);
-    final isyak = formatMasa(data['isha']);
+    final imsak = formatMasa(data['imsak']).replaceAll(" ", " ");
+    final subuh = formatMasa(data['fajr']).replaceAll(" ", " ");
+    final syuruk = formatMasa(data['syuruk']).replaceAll(" ", " ");
+    final zohor = formatMasa(data['dhuhr']).replaceAll(" ", " ");
+    final asar = formatMasa(data['asr']).replaceAll(" ", " ");
+    final maghrib = formatMasa(data['maghrib']).replaceAll(" ", " ");
+    final isyak = formatMasa(data['isha']).replaceAll(" ", " ");
 
     return WaktuSolat(
-      hari: hari,
+      hari: hari.dalamBahasaMelayu,
       hijrah: hijrah,
       masihi: masihi,
       imsak: imsak,

@@ -19,3 +19,11 @@
 
 ## 1.0.5
 * pembetulan berkaitan penentuan zon jika memberikan nama bandar selain dari 6 bandar tersebut akan memberikan nilai `null`
+
+## 1.2.0
+* kini boleh menukar masa ke 
+    * jenis `DateTime` menggunakan `.keDateTime` 
+    * format 24 jam menggunakan `.keFormat24Jam`  
+    pada waktu solat seperti zohor, asar dll
+* hari dalam `WaktuSolat` dalam Bahasa Melayu.
+* 

@@ -15,7 +15,7 @@ Sebelum memulakan penggunaan pakej ini, pastikan anda memenuhi prasyarat berikut
 1. Tambahkan pakej ini ke dalam fail pubspec.yaml anda:
     ```yaml
     dependencies:
-        waktu_solat_malaysia: ^1.0.5
+        waktu_solat_malaysia: ^1.2.0
     ```
 2. Kemudian, jalankan perintah:
     ```terminal
@@ -79,7 +79,7 @@ import 'package:waktu_solat_malaysia/waktu_solat_malaysia.dart';
 
 final harini = DateTime.now();
 
-final ws = await dapatkanJadualWaktuSolat(
+final waktuSolat = await dapatkanJadualWaktuSolat(
    ZonWaktuSolat.WLY01,
    tempohJadual: TempohJadual.durasi,
    mula: harini,
@@ -97,6 +97,25 @@ final ws = await dapatkanJadualWaktuSolat(
 > 7 hari berikutnya merupakan tahun berbeza maka pelayan akan memberikan ralat `Ralat pada pelayan: Maaf, tidak dapat memberikan jadual waktu solat jika tahun berbeza`.  
 > 
 > Hal ini terpakai juga untuk `TempohJadual.durasi` jika tarikh diberikan ialah berbeza tahunnya.
+
+### 3. Tukar format masa
+anda boleh menukar format masa mengikut kesesuaian. contohnya:
+
+#### Gunakan `.keDateTime`
+```dart
+// kod bersambung dari atas
+final waktuAsar = waktuSolat?[0].asar;
+final DateTime = waktuAsar.keDateTime;
+```
+
+#### Gunakan `.keFormat24Jam`
+```dart
+// kod bersambung dari atas
+print(waktuAsar.keFormat24Jam) // output: 16:24
+
+// jika ada sifar di hadapan
+print(waktuSubuh.keFormat24Jam) // output: 06:10
+```
 
 ## Senarai kelas, enum dan ciri-cirinya 👀
 

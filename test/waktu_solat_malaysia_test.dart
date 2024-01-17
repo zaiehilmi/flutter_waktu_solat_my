@@ -1,4 +1,5 @@
 import 'package:test/test.dart';
+import 'package:waktu_solat_malaysia/util/masa_ke_datetime.dart';
 import 'package:waktu_solat_malaysia/waktu_solat_malaysia.dart';
 
 void main() {
@@ -84,5 +85,17 @@ void main() {
     } else {
       print('Gagal mendapatkan senarai waktu solat.');
     }
+  });
+
+  test('guna extension utk tukar dari string ke datetime', () async {
+    // final DateTime dateTime = "6:03 PM".tukarKeDateTime;
+    final ws = await dapatkanJadualWaktuSolat(
+      ZonWaktuSolat.WLY01,
+    );
+
+    String asar = await ws?[0].subuh ?? "";
+    print("==${asar.keDateTime.runtimeType}==");
+    print(asar.keFormat24Jam);
+    print(ws?[0].hari?.dalamBahasaMelayu);
   });
 }

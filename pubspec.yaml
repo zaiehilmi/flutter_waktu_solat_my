@@ -1,6 +1,6 @@
 name: waktu_solat_malaysia
 description: Ini ialah pakej untuk mendapatkan waktu solat di Malaysia berdasarkan jadual daripada JAKIM.
-version: 1.0.5
+version: 1.2.0
 repository: https://github.com/zaiehilmi/flutter_waktu_solat_my
 
 environment:
