@@ -15,7 +15,7 @@ Sebelum memulakan penggunaan pakej ini, pastikan anda memenuhi prasyarat berikut
 1. Tambahkan pakej ini ke dalam fail pubspec.yaml anda:
     ```yaml
     dependencies:
-        waktu_solat_malaysia: ^1.2.0
+        waktu_solat_malaysia: ^1.2.1
     ```
 2. Kemudian, jalankan perintah:
     ```terminal

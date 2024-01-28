@@ -26,4 +26,6 @@
     * format 24 jam menggunakan `.keFormat24Jam`  
     pada waktu solat seperti zohor, asar dll
 * hari dalam `WaktuSolat` dalam Bahasa Melayu.
-* 
+
+## 1.2.1
+* pembetulan pepijat

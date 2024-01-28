@@ -1,5 +1,4 @@
 import 'package:test/test.dart';
-import 'package:waktu_solat_malaysia/util/masa_ke_datetime.dart';
 import 'package:waktu_solat_malaysia/waktu_solat_malaysia.dart';
 
 void main() {
