@@ -18,11 +18,11 @@ ZonWaktuSolat? tentukanZon(
   Koordinat koordinatSemasa, {
   String? namaBandar,
 }) =>
-    switch (namaBandar) {
-      'Kuala Lumpur' || 'Putrajaya' => ZonWaktuSolat.WLY01,
-      'Labuan' => ZonWaktuSolat.WLY02,
-      'Melaka' => ZonWaktuSolat.MLK01,
-      'Perlis' => ZonWaktuSolat.PLS01,
-      'Pulau Pinang' => ZonWaktuSolat.PNG01,
+    switch (namaBandar?.toLowerCase()) {
+      'kuala lumpur' || 'putrajaya' => ZonWaktuSolat.WLY01,
+      'labuan' => ZonWaktuSolat.WLY02,
+      'melaka' => ZonWaktuSolat.MLK01,
+      'perlis' => ZonWaktuSolat.PLS01,
+      'pulau pinang' => ZonWaktuSolat.PNG01,
       String() || null => cariZonTerdekat(koordinatSemasa),
     };

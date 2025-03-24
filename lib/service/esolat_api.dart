@@ -7,6 +7,7 @@ import 'package:waktu_solat_malaysia/constant/zon_waktu_solat.dart';
 import 'package:waktu_solat_malaysia/model/waktu_solat.dart';
 
 // sumber: https://github.com/acfatah/jakim-esolat-api?tab=readme-ov-file
+// todo: tukar guna ni https://api.waktusolat.app/docs
 const _eSolatEndpoint =
     'https://www.e-solat.gov.my/index.php?r=esolatApi/takwimsolat&';
 

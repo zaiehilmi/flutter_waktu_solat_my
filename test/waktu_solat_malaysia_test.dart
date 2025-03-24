@@ -57,16 +57,25 @@ void main() {
       ZonWaktuSolat.WLY01,
       tempohJadual: TempohJadual.durasi,
       mula: harini,
-      tamat: null,
+      tamat: harini,
     );
     expect(1, ws?.length);
   });
 
-  test('tentukan zon', () {
+  test('tentukan zon tanpa paramerter namaBandar', () {
+    Koordinat koordinatSemasa =
+        Koordinat(3.276796, 102.620653); // Koordinat kat pahang
+    ZonWaktuSolat? zon = tentukanZon(koordinatSemasa);
+    print('Zon waktu solat: $zon');
+  });
+
+  test('tentukan zon dengan paramerter namaBandar', () {
     Koordinat koordinatSemasa =
         Koordinat(3.1390, 101.6869); // Koordinat Kuala Lumpur
-    ZonWaktuSolat? zon = tentukanZon(koordinatSemasa, namaBandar: 'kuantan');
-    print('Zon waktu solat: $zon');
+    ZonWaktuSolat? zon =
+        tentukanZon(koordinatSemasa, namaBandar: 'Kuala Lumpur');
+
+    expect(ZonWaktuSolat.WLY01, zon);
   });
 
   test('dari kod sampel README', () async {
